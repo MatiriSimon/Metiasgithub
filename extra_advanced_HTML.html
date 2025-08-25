@@ -24,6 +24,8 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!-- Ensures compatibility with Internet Explorer -->
+   <!--However, since Microsoft Edge replaced IE and the use of IE has
+    significantly declined, this tag is now considered obsolete-->
 
   <!-- Open Graph metadata for social media sharing -->
   <meta property="og:title" content="Page Title" />
@@ -40,20 +42,28 @@
   <link rel="canonical" href="https://example.com/page" />
   <!-- Declares the preferred URL for this page to avoid duplicate content issues -->
 
-  <link rel="icon" href="/favicon.ico" />
-  <!-- Favicon for browser tabs -->
+  <link rel="icon" href="/favicon.ico"/>
+  <!-- Favicon for browser tabs-->
+   <!--This is very necessary coz without it your web may return a 404 error-->
 
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <!-- Icon for Apple devices -->
+  <!-- Icon for Apple devices. If not included apple users with ios devices 
+   will have their devices screenshot your webpage and use it as the icon which 
+   doesn't look very good for marketability-->
 
   <link rel="manifest" href="/site.webmanifest" />
   <!-- Web app manifest for progressive web apps -->
+   <!--Needed when you want to have your website instyalled on the user screen
+    and behave like an app. Not quite necessary unless you need it-->
 
   <link rel="stylesheet" href="/css/styles.css" />
   <!-- Link to external CSS stylesheet -->
 
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
   <!-- Loads Google Fonts for custom typography -->
+   <!-- That code works by loading a font from Google Fonts. It tells the browser to download the CSS
+     file for the "Roboto" font, which then allows youto use that font in your website's CSS. This is
+      not a must, but it's a very common practice to improve a website's design and typography. -->
 
   <!-- Google Analytics tracking script -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
