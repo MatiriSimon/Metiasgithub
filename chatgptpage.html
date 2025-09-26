@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Define character encoding and viewport for responsiveness -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Page title shown in browser tab -->
+  <title>Scifi Website Template</title>
+  
+  <style>
+    /* Reset margin and padding for all elements to avoid browser inconsistencies */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box; /* Makes width/height include padding and border */
+    }
+
+    /* Make body and html take full height */
+    body, html {
+      height: 100%;
+      /* Set font family for the whole page */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      /* Set text color to white for contrast against dark background */
+      color: white;
+      /* Set background image with no repeat, center aligned, fixed position */
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover; /* Make sure background covers entire viewport */
+      /* Use flexbox to arrange children vertically */
+      display: flex;
+      flex-direction: column;
+      /* Minimum height is full viewport height */
+      min-height: 100vh;
+    }
+
+    /* Style the header */
+    header {
+      background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+      padding: 20px 40px; /* Space inside header */
+      display: flex; /* Flexbox for horizontal layout */
+      justify-content: space-between; /* Space between logo and nav */
+      align-items: center; /* Vertically center items */
+      box-shadow: 0 2px 10px rgba(0,0,0,0.7); /* Subtle shadow for depth */
+      position: sticky; /* Keeps header fixed on top when scrolling */
+      top: 0; /* Stick to top */
+      z-index: 10; /* Ensure it appears above other content */
+    }
+
+    /* Style for site title */
+    header h1 {
+      font-weight: 700; /* Bold text */
+      font-size: 1.8rem; /* Larger font size */
+      letter-spacing: 2px; /* Space out letters */
+    }
+
+    /* Navigation container styles */
+    nav {
+      display: flex; /* Horizontal layout */
+      gap: 25px; /* Space between buttons */
+    }
+
+    /* Styles for each navigation button */
+    nav button {
+      background: transparent; /* Transparent background */
+      border: 2px solid white; /* White border */
+      color: white; /* White text */
+      padding: 8px 16px; /* Padding inside buttons */
+      font-size: 1rem; /* Normal font size */
+      cursor: pointer; /* Pointer cursor on hover */
+      border-radius: 5px; /* Rounded corners */
+      transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+    }
+
+    /* Hover effect for buttons */
+    nav button:hover {
+      background-color: white; /* White background on hover */
+      color: black; /* Black text on hover */
+    }
+
+    /* Main content area */
+    main {
+      flex-grow: 1; /* Take up remaining vertical space */
+      padding: 40px; /* Space inside main */
+      background: rgba(0,0,0,0.5); /* Semi-transparent black overlay */
+      margin: 20px auto; /* Space above/below and center horizontally */
+      max-width: 900px; /* Limit maximum width */
+      border-radius: 12px; /* Rounded corners */
+      box-shadow: 0 0 20px rgba(0,0,0,0.7); /* Shadow around content */
+      min-height: 300px; /* Minimum height so content area is visible */
+    }
+
+    /* Footer styles */
+    footer {
+      background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+      text-align: center; /* Center text */
+      padding: 15px 10px; /* Space inside footer */
+      font-size: 0.9rem; /* Slightly smaller text */
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.7); /* Shadow on top */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header section with site title and navigation -->
+  <header>
+    <h1>Scifi Site</h1>
+    <nav>
+      <!-- Buttons with data-page attribute to identify the page -->
+      <button data-page="home">Home</button>
+      <button data-page="about">About</button>
+      <button data-page="contact">Contact Us</button>
+      <button data-page="blogs">Blogs</button>
+    </nav>
+  </header>
+
+  <!-- Main content area where page content will be displayed -->
+  <main id="content">
+    <!-- Default content shown on page load -->
+    <h2>Welcome to the Scifi Website</h2>
+    <p>This is the Home page. Explore the site using the navigation buttons above.</p>
+  </main>
+
+  <!-- Footer section -->
+  <footer>
+    &copy; 2025 SciFi Website. All rights reserved.
+  </footer>
+
+  <script>
+    // Object holding the HTML content for each page
+    const content = {
+      home: `
+        <h2>Welcome to the Scifi Website</h2>
+        <p>This is the Home page. Explore the site using the navigation buttons above.</p>
+      `,
+      about: `
+        <h2>About Us</h2>
+        <p>We are passionate about science fiction and technology. This site explores the future, space, and technology through blogs and articles.</p>
+      `,
+      contact: `
+        <h2>Contact Us</h2>
+        <p>If you want to get in touch, please send us an email at <a href="mailto:contact@scifisite.com" style="color:lightblue;">contact@scifisite.com</a>.</p>
+      `,
+      blogs: `
+        <h2>Blogs</h2>
+        <ul>
+          <li><strong>Future Tech:</strong> Exploring emerging technologies.</li>
+          <li><strong>Space Exploration:</strong> Updates on space missions.</li>
+          <li><strong>AI & SciFi:</strong> How artificial intelligence shapes sci-fi stories.</li>
+        </ul>
+      `
+    };
+
+    // Select all nav buttons
+    const buttons = document.querySelectorAll('nav button');
+    // Select main content area
+    const mainContent = document.getElementById('content');
+
+    // Add click event listener to each nav button
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Get the page name from button's data-page attribute
+        const page = btn.getAttribute('data-page');
+        // Update main content with corresponding HTML from content object
+        mainContent.innerHTML = content[page];
+      });
+    });
+  </script>
+</body>
+</html>
+
+
